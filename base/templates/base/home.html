@@ -1,0 +1,57 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.js"></script>
+<div style="width:900px; height: 400px;">
+	<canvas id="myChart"></canvas>
+	<button onclick="fetchData()"> fetch now </button>
+</div>
+<head>
+    <script src="app.js" type="text/javascript"></script>
+</head>
+
+<script> 
+
+
+//Fetch Block
+
+//async function loadConfigData(){
+  //  const repsonse=await fetch(".assets/class.json");
+   // const data=await response.json();
+    //console.log(data);
+//}
+//loadConfigData();
+
+//Writing the Data
+	let labels=['Big Mac','Quarter Pounder withCheese','McDonald','Hamberger'];
+	let itemdata=[550,520,400,450];
+	const showlegend=true
+//setup block
+	const data = {
+		labels:labels,
+		datasets:[{
+			data:itemdata,
+			//adding Background Colour
+			backgroundColor:['rgb(66, 221, 245)','rgb(87, 37, 41)','rgb(177, 114, 224)','rgb(31, 140, 31)']
+		}]
+	}
+// config block
+	const config = {
+		type:'line',
+        data: data,
+        options:{
+        	plugins:{
+        		legend:{
+        			display: showlegend
+        		},
+        		title:{
+        			display:true,
+        			text: 'MaDonalds Burger Calories'
+        		}
+        	} 
+        }} 
+//Render Block
+     const chart = new Chart(
+     	document.getElementById('myChart'),
+     	config
+     	)
+
+
+</script>
